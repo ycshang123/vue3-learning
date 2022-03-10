@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue3实现todolist组件化</title>
+</head>
+
+
+<body>
+    <div id="app"></div>
+
+
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+        const app = Vue.createApp({
+            data () {
+                return {
+                    inputValue: '',
+                    list: [
+                        {
+                            title: "图片1",
+                            url: "https://cdn.jsdelivr.net/gh/ycshang123/image-hosting@master/pag2.5l6c7b2fvv40.jpg",
+                            desc: "hello,hello,hello"
+                        },
+                        {
+                            title: "图片2",
+                            url: "https://cdn.jsdelivr.net/gh/ycshang123/image-hosting@master/pag3.1ao7erlnhbcw.jpg",
+                            desc: "hello,hello,hello"
+                        },
+                        {
+                            title: "图片3",
+                            url: "https://cdn.jsdelivr.net/gh/ycshang123/image-hosting@master/welcome.6w6u4exvkes0.jpg",
+                            desc: "hello,hello,hello"
+                        }
+                    ]
+
+                }
+            },
+            methods: {
+                handleAddItme () {
+                    this.list.push(this.inputValue)
+                    this.inputValue = ''
+                }
+
+            },
+            template: `
+            <div>
+                    <img-card v-for="(item,index) of list" :path="item.url" :title="item.title"/>
+                </div>
+            `
+
+        })
+        app.component("img-card", {
+            props: ['path', 'title'],
+            template: `
+            <div style="width:200px;height:120px;margin:10px;border:3px solid #bdbdbd ">
+               <h6>{{title}}</h6>
+            <img :src='path' style="width:100%;height:60%"/>
+        </div>
+            `,
+        })
+
+        app.mount('#app')
+    </script>
+
+
+</body>
+
+</html>
