@@ -37,3 +37,18 @@
 3. vue3-控制反转
 4. vue3-实现todolist
 5. vue3-todolist组件化
+
+## 2-Vue基础语法
+
+1. 格式化时间戳
+2. 计数器
+3. 事件冒泡prevent修饰符
+4. 事件冒泡self修饰符
+5. 事件冒泡stop修饰符
+6. 键盘监听【移动的小方块】
+7. v-html和v-pre指令
+8. v-if和v-show指令
+9. v-text和v-cloak指令
+10. Vue插值表达式
+11. Vue声明周期函数
+12. Vue中应用和组件的概念
