@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>父子组件嵌套练习</title>
+</head>
+
+<body>
+    <div id="app">
+        <parent></parent>
+
+    </div>
+    <template id="Child">
+        <div style="width:100%;height:190px;">
+            <img src="https://cdn.jsdelivr.net/gh/ycshang123/image-hosting@master/7.309m5bf9shq0.jpg"
+                style="width: 100%;height:100%;border-radius: 6px;">
+            <div style="width:100%;height: 160px;display:flex;flex-direction: column;align-items: center;">
+                <inner></inner>
+
+            </div>
+        </div>
+
+    </template>
+    <template id="Parent">
+        <div
+            style="width:340px;height:380px;border-radius: 6px;background-color: #ffffff;display: flex;flex-direction: column;box-shadow:4px 3px 3px #eeeeee;">
+
+            <child></child>
+        </div>
+
+
+    </template>
+
+    <template id="Inner">
+        <div style="width:80%;height:190px;display: flex;flex-direction: column;align-items: center;">
+
+            <p style="font-size: 20px;font-weight: 600;">Cafe Badiilico</p>
+            <p style="color:#bcbcbc;font-size:16px;margin-top: 12px;">
+                Small plates, salads & sandwiches - an intimate setting with 12 indoor seats plus patio seating
+            </p>
+            <div style="display: flex;margin: 20px;width: 100%;">
+                <button
+                    style="width: 80px;height:35px;border: none;border-radius: 36px;margin-right: 20px;">5:30PM</button>
+                <button
+                    style="width: 80px;height:35px;border: none;border-radius: 36px;margin-right: 20px;background-color: #741eec;color: #fff;">15:30PM</button>
+                <button
+                    style="width: 80px;height:35px;border: none;border-radius: 36px;margin-right: 20px;">17:30PM</button>
+            </div>
+        </div>
+
+    </template>
+
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+        const app = Vue.createApp({
+            components: {
+                Parent: {
+                    template: "#Parent",
+                    components: {
+                        Child: {
+                            template: "#Child",
+                            components: {
+                                Inner: {
+                                    template: "#Inner"
+                                }
+
+
+                            }
+                        }
+                    }
+                }
+            }
+
+        })
+        const vm = app.mount('#app');
+    </script>
+</body>
+
+<html>
